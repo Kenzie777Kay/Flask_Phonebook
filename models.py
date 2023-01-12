@@ -60,7 +60,7 @@ class Contact(db.Model):
     user_token = db.Column(db.String, db.ForeignKey('user.token'), nullable=False)
 
     def __init__(self, name, email, phone_number, address, user_token, id=''):
-        self.id = self.set_id
+        self.id = self.set_id()
         self.name = name
         self.email = email
         self.phone_number = phone_number

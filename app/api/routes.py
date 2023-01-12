@@ -36,13 +36,6 @@ def get_contact(current_user_token):
     response = contacts_schema.dump(contacts)
     return jsonify(response)
 
-@api.route('/contacts/<id>', methods = ['GET'])
-@token_required
-def get_single_contact(current_user_token, id):
-    contact = Contact.query.get(id)
-    response = contact_schema.dump(contact)
-    return jsonify(response)
-
 @api.route('/contacts/<id>', methods = ['POST','PUT'])
 @token_required
 def update_contact(current_user_token,id):
